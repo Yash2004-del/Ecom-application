@@ -189,18 +189,18 @@ $(document).ready(function(){
 <% ResultSet rs = (ResultSet)request.getAttribute("rs");     %>
 <div class="container-xl">
 	<div class="row">
-	
+	<jsp:include page="Header.jsp"></jsp:include>
 		<div class="col-md-12">
-			<h2>Featured <b>Products</b></h2>
+			
 			
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-			
+			<br><br><br>
 			<!-- Carousel indicators -->
 			 
 			<!-- Wrapper for carousel items -->
 			
 			<div class="carousel-inner">
-			
+			<h2>Featured <b>Products</b></h2><br><br>
 				<div class="item carousel-item active">
 				
 					<div class="row">
@@ -240,8 +240,9 @@ $(document).ready(function(){
 		</div>
 		
 		</div>
-		
+		 <%@include file="footer.jsp" %>
 	</div>
+	
 </div>
 
 </body>
