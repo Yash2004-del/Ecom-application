@@ -33,12 +33,12 @@
                 <form action="LoginServlet" method="post">
                 <span style="color:red">${Error}</span> <span style="color:green">${Update}</span><br><br>
                   <div class="form-group">
-                    <label>Username or email *</label>
-                    <input type="text" class="form-control p_input" name="Email">
+                    <label> Email *</label>
+                    <input type="text" class="form-control p_input" name="Email" placeholder="Please enter email"><span style="color:red">${EError}</span>
                   </div>
                   <div class="form-group">
                     <label>Password *</label>
-                    <input type="password" class="form-control p_input" name="Password"><br>
+                    <input type="password" class="form-control p_input" name="Password" placeholder="Please enter password"><br><span style="color:red">${PError}</span>
                    <a href="UpdatePassword.jsp" class="forgot-pass">Forgot password</a>
                   </div>
                   

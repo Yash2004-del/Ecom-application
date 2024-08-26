@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored = "false"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,21 +32,27 @@
                 <h3 class="card-title text-start mb-3">Register</h3>
                 <form action="SignUpServlet" method="post">
                   <div class="form-group">
-                    <label>FirstName</label>
-                    <input type="text" class="form-control p_input" name="FirstName" placeholder="Please enter your name">
+                    <label>FirstName</label><br>
+                    <input type="text" class="form-control p_input" name="FirstName" placeholder="Please enter your name"><span style="color:red">${NError}</span>
                   </div>
                   <div class="form-group">
                     <label>Email</label>
-                    <input type="email" class="form-control p_input" name="Email" placeholder="Please enter your email">
+                    <input type="email" class="form-control p_input" name="Email" placeholder="Please enter your email"><span style="color:red">${EError}</span>
                   </div>
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" class="form-control p_input" name="Password" placeholder="Please enter your password">
+                     <span style="color:red">${PError}</span>
+                     <span style="color:red">
+                    <h6>*Should contain length upto 8 characters.</h6>
+                    <h6>*Should contain one Uppercase character.</h6>
+                    <h6>*Should contain @ followed by 4 digits.</h6><span style="color:red">${PError}</span>
+                  </span>
                   </div>
                  <div >
                     <label>Gender</label>:
                     Male:<input type="radio"  name="Gender" value="Male">
-                    Female:<input type="radio"  name="Gender" value="Female">
+                    Female:<input type="radio"  name="Gender" value="Female"><span style="color:red">${GError}</span>
                   </div><br>
                    
                   <div class="text-center d-grid gap-2">

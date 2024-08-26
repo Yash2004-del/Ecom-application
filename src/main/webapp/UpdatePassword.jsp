@@ -29,17 +29,21 @@
           <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
-                <h3 class="card-title text-start mb-3">Login</h3>
+                <h3 class="card-title text-start mb-3">Update Password</h3>
                 <form action="UpdatePasswordServlet" method="post">
                 ${Error}<br>
                   <div class="form-group">
-                    <label>Username or email *</label>
-                    <input type="text" class="form-control p_input" name="Email">
+                    <label> Email *</label>
+                    <input type="text" class="form-control p_input" name="Email" placeholder="Please enter email"><span style="color:red">${EError}</span>
                   </div>
                   <div class="form-group">
                     <label>New Password *</label>
-                    <input type="password" class="form-control p_input" name="Password"><br>
-                  
+                    <input type="password" class="form-control p_input" name="Password" placeholder="Please enter new password"><br><span style="color:red">${PError}</span>
+                    <span style="color:red">
+                    <h6>*Should contain length upto 8 characters.</h6>
+                    <h6>*Should contain one Uppercase character.</h6>
+                    <h6>*Should contain @ followed by 4 digits.</h6>
+                  </span>
                   </div>
                   
                   <div class="text-center d-grid gap-2">

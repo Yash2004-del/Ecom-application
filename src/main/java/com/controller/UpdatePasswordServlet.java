@@ -18,7 +18,7 @@ public class UpdatePasswordServlet extends HttpServlet
 	{
 		String Email = request.getParameter("Email");
 		String Password = request.getParameter("Password");
-		boolean sucess = false;
+		
 		try 
 		{
 		Class.forName("com.mysql.cj.jdbc.Driver");
