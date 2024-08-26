@@ -30,23 +30,23 @@
             <div class="card col-lg-4 mx-auto">
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-start mb-3">Login</h3>
-                <form action="LoginServlet" method="post">
-                <span style="color:red">${Error}</span> <span style="color:green">${Update}</span><br><br>
+                <form action="UpdatePasswordServlet" method="post">
+                ${Error}<br>
                   <div class="form-group">
                     <label>Username or email *</label>
                     <input type="text" class="form-control p_input" name="Email">
                   </div>
                   <div class="form-group">
-                    <label>Password *</label>
+                    <label>New Password *</label>
                     <input type="password" class="form-control p_input" name="Password"><br>
-                   <a href="UpdatePassword.jsp" class="forgot-pass">Forgot password</a>
+                  
                   </div>
                   
                   <div class="text-center d-grid gap-2">
-                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Update Password</button>
                   </div>
                  
-                  <p class="sign-up">Don't have an Account?<a href="SignUp.jsp"> Sign Up</a></p>
+                 
                 </form>
               </div>
             </div>
