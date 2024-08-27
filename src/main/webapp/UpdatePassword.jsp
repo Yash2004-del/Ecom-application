@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>UpdatePassword</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/ti-icons/css/themify-icons.css">
@@ -31,15 +31,15 @@
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-start mb-3">Update Password</h3>
                 <form action="UpdatePasswordServlet" method="post">
-                ${Error}<br>
+             <span style="color:red">${NFEError}</span><br><br>
                   <div class="form-group">
                     <label> Email *</label>
                     <input type="text" class="form-control p_input" name="Email" placeholder="Please enter email"><span style="color:red">${EError}</span>
                   </div>
                   <div class="form-group">
                     <label>New Password *</label>
-                    <input type="password" class="form-control p_input" name="Password" placeholder="Please enter new password"><br><span style="color:red">${PError}</span>
-                    <span style="color:red">
+                    <input type="password" class="form-control p_input" name="Password" placeholder="Please enter new password"><span style="color:red">${PError}</span><br>
+                    <span style="color:yellow">
                     <h6>*Should contain length upto 8 characters.</h6>
                     <h6>*Should contain one Uppercase character.</h6>
                     <h6>*Should contain @ followed by 4 digits.</h6>

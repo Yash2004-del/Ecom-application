@@ -43,10 +43,10 @@
                     <label>Password</label>
                     <input type="password" class="form-control p_input" name="Password" placeholder="Please enter your password">
                      <span style="color:red">${PError}</span>
-                     <span style="color:red">
+                     <span style="color:yellow">
                     <h6>*Should contain length upto 8 characters.</h6>
                     <h6>*Should contain one Uppercase character.</h6>
-                    <h6>*Should contain @ followed by 4 digits.</h6><span style="color:red">${PError}</span>
+                    <h6>*Should contain @ character followed by 4 digits.</h6><span style="color:red">${PError}</span>
                   </span>
                   </div>
                  <div >

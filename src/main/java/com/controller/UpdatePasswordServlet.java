@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ public class UpdatePasswordServlet extends HttpServlet
 	{
 		String Email = request.getParameter("Email");
 		String Password = request.getParameter("Password");
-		
+		boolean isError = false;
 		try 
 		{
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,6 +31,7 @@ public class UpdatePasswordServlet extends HttpServlet
 		if(conn!=null)
 		{
 			System.out.println("Connection Sucessful");
+		
 		}
 		}
 		catch(Exception e)
@@ -37,6 +39,7 @@ public class UpdatePasswordServlet extends HttpServlet
 			e.printStackTrace();
 		}
 		
+	
 		
 			request.setAttribute("Update", "Password Sucessfully Updated");
 			RequestDispatcher rd = request.getRequestDispatcher("Login.jsp");

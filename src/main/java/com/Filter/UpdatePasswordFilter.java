@@ -1,6 +1,10 @@
 package com.Filter;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,8 +20,14 @@ public class UpdatePasswordFilter implements Filter
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-		
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -28,6 +38,7 @@ public class UpdatePasswordFilter implements Filter
 		String PRegEx = "[a-zA-Z]+@[0-9]{4}";
 		String ERegEx = "[a-zA-Z0-9]+@[a-zA-Z]+\\.[a-zA-Z0-9]{2,3}";
 		boolean isError = false;
+		boolean unsucess = false;
 		if(Email == null || Email.trim().length()==0)
 		{
 			isError = true;
@@ -53,16 +64,40 @@ public class UpdatePasswordFilter implements Filter
 			isError = true;
 			request.setAttribute("PError", "Please Enter Strong Password");
 		}
-		if(isError == true)
+		try
 		{
-			System.out.println("Error");
+			Connection conn = DriverManager.getConnection("jdbc:mysql:// localhost : 3306 / ecomapp","root","root");
+			PreparedStatement ptsmr = conn.prepareStatement("select * from user1 where Email=? ");
+			ptsmr.setString(1, Email);
+			ResultSet rs = ptsmr.executeQuery();
+			if(rs.next()==false)
+			{
+				unsucess = true;
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		if(unsucess == true)
+		{
+			request.setAttribute("NFEError", "Email not found or wrong Email");
 			RequestDispatcher rd = request.getRequestDispatcher("UpdatePassword.jsp");
 			rd.forward(request, response);
 		}
 		else
 		{
-			System.out.println("Sucess");
-			chain.doFilter(request, response);
+			if(isError == true)
+			{
+				System.out.println("Error");
+				RequestDispatcher rd = request.getRequestDispatcher("UpdatePassword.jsp");
+				rd.forward(request, response);
+			}
+			else
+			{
+				System.out.println("Sucess");
+				chain.doFilter(request, response);
+			}
 		}
 	}
 
