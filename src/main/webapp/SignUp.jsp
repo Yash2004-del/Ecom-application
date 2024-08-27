@@ -42,7 +42,7 @@
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" class="form-control p_input" name="Password" placeholder="Please enter your password">
-                     <span style="color:red">${PError}</span>
+                     <span style="color:red">${PError}</span><br>
                      <span style="color:yellow">
                     <h6>*Should contain length upto 8 characters.</h6>
                     <h6>*Should contain one Uppercase character.</h6>

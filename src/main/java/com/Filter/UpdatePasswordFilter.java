@@ -38,7 +38,7 @@ public class UpdatePasswordFilter implements Filter
 		String PRegEx = "[a-zA-Z]+@[0-9]{4}";
 		String ERegEx = "[a-zA-Z0-9]+@[a-zA-Z]+\\.[a-zA-Z0-9]{2,3}";
 		boolean isError = false;
-		boolean unsucess = false;
+		boolean sucess = false;
 		if(Email == null || Email.trim().length()==0)
 		{
 			isError = true;
@@ -70,22 +70,16 @@ public class UpdatePasswordFilter implements Filter
 			PreparedStatement ptsmr = conn.prepareStatement("select * from user1 where Email=? ");
 			ptsmr.setString(1, Email);
 			ResultSet rs = ptsmr.executeQuery();
-			if(rs.next()==false)
+			if(rs.next())
 			{
-				unsucess = true;
+				sucess = true;
 			}
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		if(unsucess == true)
-		{
-			request.setAttribute("NFEError", "Email not found or wrong Email");
-			RequestDispatcher rd = request.getRequestDispatcher("UpdatePassword.jsp");
-			rd.forward(request, response);
-		}
-		else
+		if(sucess)
 		{
 			if(isError == true)
 			{
@@ -98,6 +92,13 @@ public class UpdatePasswordFilter implements Filter
 				System.out.println("Sucess");
 				chain.doFilter(request, response);
 			}
+			
+		}
+		else
+		{
+			request.setAttribute("NFEError", "Email not found or wrong Email");
+			RequestDispatcher rd = request.getRequestDispatcher("UpdatePassword.jsp");
+			rd.forward(request, response);
 		}
 	}
 
