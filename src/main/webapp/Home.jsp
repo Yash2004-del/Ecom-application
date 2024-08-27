@@ -1,7 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored = "false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+ <c:if test="${cookie.Email == null}">
+    <c:redirect url="Login.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Ministore</title>
     <meta charset="utf-8">
@@ -18,7 +24,8 @@
     <script src="js/modernizr.js"></script>
   </head>
   <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
-    
+   
+
     <div class="search-popup">
         <div class="search-popup-container">
 
@@ -72,6 +79,7 @@
               <div class="icon-box-content">
                 <h3 class="card-title text-uppercase text-dark">Free delivery</h3>
                 <p>Available within 5kms of range.</p>
+                <p> </p>
               </div>
             </div>
           </div>

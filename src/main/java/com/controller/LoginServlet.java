@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.net.ResponseCache;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,6 +9,7 @@ import java.sql.ResultSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +21,7 @@ public class LoginServlet extends HttpServlet
 	{
 		String Email = request.getParameter("Email");
 		String Password = request.getParameter("Password");
+		
 		boolean success = false;
 		try
 		{
@@ -35,6 +36,7 @@ public class LoginServlet extends HttpServlet
 				success = true;
 			}
 			
+			
 		}
 		catch(Exception e)
 		{
@@ -42,7 +44,10 @@ public class LoginServlet extends HttpServlet
 		}
 		if(success)
 		{
+			Cookie c = new Cookie("Email", Email);
+			response.addCookie(c);
 			response.sendRedirect("Home.jsp");
+			
 		}
 		else
 		{

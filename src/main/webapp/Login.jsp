@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored = "false"%>
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +24,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.png" />
   </head>
   <body>
+  
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="row w-100">
