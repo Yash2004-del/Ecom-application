@@ -28,7 +28,7 @@ public class ValidationFilter implements Filter{
 		String Gender = request.getParameter("Gender");
 		String RegEx = "[a-zA-Z\\sa-zA-Z]+";
 		String ERegEx = "[a-zA-Z0-9]+@[a-zA-Z]+\\.[a-zA-Z0-9]{2,3}";
-		String PRegEx = "[a-zA-Z]+@[0-9]{2,4}";
+		String PRegEx = "[a-zA-Z]+@[0-9]{4}";
 		boolean isError = false;
 		if(FirstName == null || FirstName.trim().length()==0)
 		{
@@ -50,10 +50,15 @@ public class ValidationFilter implements Filter{
 			isError = true;
 			request.setAttribute("EError", "Please Enter Valid Email");
 		}
-		if(Password == null || Password.trim().length()==0)
+		if(Password == null || Password.trim().length()==0 )
 		{
 			isError = true;
 			request.setAttribute("PError", "Please Enter Password");
+		}
+		else if(Password.length()>8)
+		{
+			isError = true;
+			request.setAttribute("PError", "Please Enter Valid Password");
 		}
 		else if(Password.matches(PRegEx)==false)
 		{

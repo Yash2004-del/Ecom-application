@@ -25,7 +25,7 @@ public class UpdatePasswordFilter implements Filter
 			throws IOException, ServletException {
 		String Email = request.getParameter("Email");
 		String Password = request.getParameter("Password");
-		String PRegEx = "[a-zA-Z]+@[0-9]{2,4}";
+		String PRegEx = "[a-zA-Z]+@[0-9]{4}";
 		String ERegEx = "[a-zA-Z0-9]+@[a-zA-Z]+\\.[a-zA-Z0-9]{2,3}";
 		boolean isError = false;
 		if(Email == null || Email.trim().length()==0)
@@ -42,6 +42,11 @@ public class UpdatePasswordFilter implements Filter
 		{
 			isError = true;
 			request.setAttribute("PError", "Please Enter Password");
+		}
+		else if( Password.length()>8)
+		{
+			isError = true;
+			request.setAttribute("PError", "Please Enter Valid Password");
 		}
 		else if(Password.matches(PRegEx)==false)
 		{
