@@ -116,7 +116,7 @@
                   <a class="nav-link me-4" href="#">Checkout</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="#">Logout</a>
+                  <a class="nav-link me-4" href="Logout.jsp">Logout</a>
                 </li>
                
                 <li class="nav-item">

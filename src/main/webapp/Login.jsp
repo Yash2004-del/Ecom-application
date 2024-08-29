@@ -33,7 +33,7 @@
               <div class="card-body px-5 py-5">
                 <h3 class="card-title text-start mb-3">Login</h3>
                 <form action="LoginServlet" method="post">
-                <span style="color:red">${Error}</span> <span style="color:green">${Update}</span><br><br>
+                <span style="color:red">${Error}</span> <span style="color:green">${Update}</span><span style="color:white">${Logout}</span> <br><br>
                   <div class="form-group">
                     <label> Email *</label>
                     <input type="text" class="form-control p_input" name="Email" placeholder="Please enter email"><span style="color:red">${EError}</span>

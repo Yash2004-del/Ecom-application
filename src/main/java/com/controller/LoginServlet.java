@@ -13,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet
@@ -46,6 +47,8 @@ public class LoginServlet extends HttpServlet
 		{
 			Cookie c = new Cookie("Email", Email);
 			response.addCookie(c);
+			HttpSession session = request.getSession();
+			session.setAttribute("Password", Password);
 			response.sendRedirect("Home.jsp");
 			
 		}
