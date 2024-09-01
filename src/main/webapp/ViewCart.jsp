@@ -225,7 +225,7 @@ $(document).ready(function(){
 										</ul>
 									</div>
 									<p class="item-price"><strike><%=rs.getInt("price") + rs.getInt("price")*(0.1) %></strike> <b><%=rs.getInt("price") %></b></p>
-										
+									<a href="RemoveProductServlet?productId=<%=rs.getString("productId") %>" class="btn btn-primary">Remove Product</a>	
 								</div>						
 							</div>
 							
