@@ -110,10 +110,10 @@
                 </li>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="#smart-watches">Cart</a>
+                  <a class="nav-link me-4" href="ViewCartServlet">Cart</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="#">Checkout</a>
+                  <a class="nav-link me-4" href="ViewCartServlet">Checkout</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-4" href="Logout.jsp">Logout</a>

@@ -187,6 +187,7 @@ $(document).ready(function(){
 </head>
 <body>
 <% ResultSet rs = (ResultSet)request.getAttribute("rs");     %>
+
 <div class="container-xl">
 	<div class="row">
 	<jsp:include page="Header.jsp"></jsp:include>
@@ -224,15 +225,15 @@ $(document).ready(function(){
 										</ul>
 									</div>
 									<p class="item-price"><strike><%=rs.getInt("price") + rs.getInt("price")*(0.1) %></strike> <b><%=rs.getInt("price") %></b></p>
-									<a href="AddToCartServlet?productId=<%=rs.getString("productId") %>" class="btn btn-primary">Add to Cart</a>
+										
 								</div>						
 							</div>
 							
 						</div>
 						<%} %>	
-				
+		
 			</div>
-			
+		<br><br><a href="CheckoutServlet" class="btn btn-primary">Proceed to Buy</a>			
 		</div>
 	
 	</div>

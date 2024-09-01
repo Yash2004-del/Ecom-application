@@ -187,6 +187,7 @@ $(document).ready(function(){
 </head>
 <body>
 <% ResultSet rs = (ResultSet)request.getAttribute("rs");     %>
+
 <div class="container-xl">
 	<div class="row">
 	<jsp:include page="Header.jsp"></jsp:include>
@@ -201,38 +202,14 @@ $(document).ready(function(){
 			
 			<div class="carousel-inner">
 			<h2>Featured <b>Products</b></h2><br><br>
+				<% while(rs.next()) { %>
 				<div class="item carousel-item active">
 				
-					<div class="row">
-					<% while(rs.next()) { %>
-						<div class="col-sm-3">
-						
-							<div class="thumb-wrapper">
-								<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-								<div class="img-box">
-									<img src="<%=rs.getString("productImagePath") %>" class="img-fluid"  alt="">									
-								</div>
-								<div class="thumb-content">
-									<h4><%=rs.getString("product_name") %></h4>									
-									<div class="star-rating">
-										<ul class="list-inline">
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star"></i></li>
-											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-										</ul>
-									</div>
-									<p class="item-price"><strike><%=rs.getInt("price") + rs.getInt("price")*(0.1) %></strike> <b><%=rs.getInt("price") %></b></p>
-									<a href="AddToCartServlet?productId=<%=rs.getString("productId") %>" class="btn btn-primary">Add to Cart</a>
-								</div>						
-							</div>
-							
-						</div>
-						<%} %>	
-				
-			</div>
-			
+					
+					SubTotal:Rs<%=rs.getInt("total_price") %>
+					<%} %>
+					
+		<br><br><a href="PaymentServlet" class="btn btn-primary">Payment</a>			
 		</div>
 	
 	</div>
